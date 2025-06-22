@@ -66,6 +66,7 @@ aside {
 main {
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -84,10 +85,15 @@ footer {
   gap: 1rem;
 }
 
+.about {
+  padding: 50px;
+}
+
 .projects {
   width: 100%;
   height: 100%;
-  padding: 50px;
+  padding: 0 50px;
+  margin-bottom: 50px;
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(3, minmax(200px, 1fr));
