@@ -7,13 +7,9 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <header>
-      <!-- Make this not accessible by screen readers i.e. only visual -->
-      <p>Anuvind Ashok</p>
-    </header>
     <div class="layout">
       <aside>
-        <div class="nav">
+        <div class="nav-container">
           <ul class="nav-list">
             <li><a href="#">Home</a></li>
             <li><a href="">About</a></li>
@@ -23,23 +19,73 @@
         </div>
       </aside>
       <main>
-        <div class="about">
-          <h1>Anuvind Ashok</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde
-            blanditiis perspiciatis quasi veritatis similique reprehenderit
-            porro corporis, ea natus adipisci provident doloribus soluta? Eum
-            nostrum, eligendi nihil non expedita autem minus rerum quisquam
-            tempora.
-          </p>
+        <div class="hero">
+          <div class="hero-container">
+            <div class="hero-content">
+              <h1>Hey there,</h1>
+              <p>
+                My name is Anuvind. I'm a curious and enthusiastic full-stack
+                developer in the making! Right now, I'm learning the ins and
+                outs of web development — building projects, exploring new tech,
+                and trying to break (and fix!) things along the way. This site
+                is my little corner of the internet where I share what I'm
+                working on and what I'm learning. I'm excited about the journey
+                ahead and always looking to grow, connect, and create cool
+                things with code.
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="projects">
-          <div class="proj">Proj 1</div>
-          <div class="proj">Proj 2</div>
-          <div class="proj">Proj 3</div>
-          <div class="proj">Proj 4</div>
-          <div class="proj">Proj 5</div>
-          <div class="proj">Proj 6</div>
+        <div class="projects-section">
+          <div class="section-header">
+            <hr class="line" />
+            <h1>Some of my work</h1>
+            <hr class="line" />
+          </div>
+          <div class="projects">
+            <div class="proj">
+              <div class="proj-container">
+                <a href="https://github.com/anuvind10/TicTacToe"
+                  ><img
+                    src="./images/TicTacToe.png"
+                    alt="Tic Tac Toe"
+                    class="proj-image"
+                /></a>
+                <div class="proj-description">
+                  A simple two-player Tic Tac Toe game built with JavaScript,
+                  featuring turn-based logic and win detection.
+                </div>
+              </div>
+            </div>
+            <div class="proj">
+              <div class="proj-container">
+                <a href="https://github.com/anuvind10/ToDo-List"
+                  ><img
+                    src="./images/ToDoList.png"
+                    alt="To-Do List"
+                    class="proj-image"
+                /></a>
+                <div class="proj-description">
+                  A clean and minimal to-do list app where users can add, mark,
+                  and remove tasks to stay organized.
+                </div>
+              </div>
+            </div>
+            <div class="proj">
+              <div class="proj-container">
+                <a href="https://github.com/anuvind10/Restaurant"
+                  ><img
+                    src="./images/CafeWebsite.png"
+                    alt="Cafe Website"
+                    class="proj-image"
+                /></a>
+                <div class="proj-description">
+                  A responsive and stylish website for a fictional cafe,
+                  showcasing its menu, location, and contact details.
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
     </div>
