@@ -81,7 +81,7 @@ header p {
 
 aside {
   position: fixed;
-  top: 20%;
+  top: 15%;
   width: 180px;
   z-index: 1000;
   display: flex;
@@ -93,6 +93,22 @@ aside {
   padding: 50px;
 }
 
+.nav-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.nav-list a {
+  font-family: var(--baseFont);
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: 400;
+}
+
 main {
   flex: 1;
   display: flex;
@@ -101,28 +117,22 @@ main {
   justify-content: center;
 }
 
-.nav-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.nav-list a {
-  text-decoration: none;
-  font-family: var(--baseFont);
-  font-weight: 800;
-}
-
 .hero {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   padding-top: 50px;
-  background-image: linear-gradient(to right, #252525, #000000);
+  background: linear-gradient(
+    to left,
+    #000000 0%,
+    #000000 30%,
+    #222222 50%,
+    #000000 70%,
+    #000000 100%
+  );
+  background-size: 200% 100%;
+  animation: rippleMove 1s ease-in-out forwards;
 }
 
 .hero-container {
@@ -209,7 +219,7 @@ main {
 
 footer {
   height: 100px;
-  background-image: linear-gradient(to right, #252525, #000000);
+  background-image: linear-gradieknt(to right, #252525, #000000);
   box-shadow: 0 2px #363636a8 inset;
 }
 
@@ -219,6 +229,16 @@ footer {
   align-items: center;
   justify-content: space-between;
   padding: 0 200px;
+  background: linear-gradient(
+    to left,
+    #000000 0%,
+    #000000 30%,
+    #222222 50%,
+    #000000 70%,
+    #000000 100%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0;
 }
 
 footer a {
@@ -227,6 +247,59 @@ footer a {
 
 .devicon-github-original {
   font-size: 24px;
+}
+
+.proj {
+  scale: 0.8;
+  opacity: 0.2;
+  animation: fade-in linear forwards;
+  animation-timeline: view();
+  animation-range: 200px 400px;
+}
+
+.scroll-down-arrow {
+  position: fixed;
+  bottom: 5%;
+  opacity: 0.2;
+  animation: bounce 1s alternate infinite cubic-bezier(0.2, 0.65, 0.6, 1),
+    fade-out linear forwards;
+
+  animation-timeline: auto, scroll();
+  animation-range: normal, entry 0% cover 20%;
+}
+
+@keyframes fade-in {
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    scale: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-20px);
+    opacity: 1;
+  }
+}
+
+@keyframes rippleMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
 }
 
 @media (max-width: 600px) {
