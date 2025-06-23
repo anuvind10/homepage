@@ -101,12 +101,6 @@ main {
   justify-content: center;
 }
 
-footer {
-  height: 200px;
-  background-image: linear-gradient(to right, #252525, #000000);
-  box-shadow: 0 2px #363636a8 inset;
-}
-
 .nav-list {
   list-style-type: none;
   padding: 0;
@@ -211,6 +205,28 @@ footer {
   display: block; /* removes inline spacing below image */
   object-fit: cover;
   border-radius: 10px;
+}
+
+footer {
+  height: 100px;
+  background-image: linear-gradient(to right, #252525, #000000);
+  box-shadow: 0 2px #363636a8 inset;
+}
+
+footer {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 200px;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+.devicon-github-original {
+  font-size: 24px;
 }
 
 @media (max-width: 600px) {
