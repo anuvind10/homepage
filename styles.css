@@ -49,6 +49,10 @@ a {
   src: url("./fonts/Lora/static/Lora-SemiBoldItalic.ttf");
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   height: 100%;
   min-height: 100vh;
@@ -70,11 +74,16 @@ body {
   font-family: var(--baseFont);
   font-weight: 400;
   width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 200px;
+  padding: 10px 200px;
   background-color: var(--bgColor);
+  box-shadow: 1px 4px 5px #000000;
 }
 
 .nav-list {
@@ -136,6 +145,7 @@ body {
 }
 
 main {
+  margin-top: 20px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -143,7 +153,7 @@ main {
   justify-content: center;
 }
 
-.hero {
+#hero {
   position: relative;
   width: 100%;
   padding: 220px 300px;
@@ -153,7 +163,6 @@ main {
   background-color: var(--surfaceColor);
   background-size: cover;
   background-repeat: no-repeat;
-  box-shadow: 0 2px #363636a8 inset;
 }
 
 .overlay {
@@ -178,6 +187,20 @@ main {
   color: var(--primaryText);
 }
 
+.text-reveal span {
+  /* color: rgba(255, 255, 255, 0.2);
+  background-clip: text;
+  background-size: 25% 100%;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(
+    to right,
+    var(--secondaryText),
+    var(--secondaryText)
+  ); */
+  opacity: 0;
+  animation: 1s text-reveal ease-in forwards;
+}
+
 .hero-img {
   position: relative;
   width: 250px;
@@ -196,17 +219,14 @@ main {
 .hero-img img:first-child {
   animation: glitch 1000ms 2;
   z-index: 1;
-  /* clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%); */
 }
 
 .hero-img img:last-child {
   animation: glitch 300ms 2;
   z-index: 1;
-  /* clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%); */
-  /* transform: translate(-2em, -2em) scale(1.5); */
 }
 
-.projects-section {
+#projects-section {
   width: 100%;
   padding-top: 150px;
   display: flex;
@@ -253,8 +273,12 @@ main {
   box-shadow: 4px 4px 5px #000000;
   overflow: hidden;
   padding: 10px;
-  transform: scale(1);
+  opacity: 0;
+  scale: 0.5;
   transition: transform 50ms ease-out;
+  animation: fade-in linear forwards;
+  animation-timeline: view();
+  animation-range: 100px 300px;
 }
 
 .proj:hover {
@@ -288,7 +312,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 200px;
+  padding: 0 250px;
   background-color: var(--bgColor);
   box-shadow: 0 -2px 5px #000000;
 }
@@ -311,20 +335,6 @@ footer a {
   animation-range: normal, entry 0% cover 20%;
 }
 
-@keyframes fade-in {
-  to {
-    scale: 1;
-    opacity: 1;
-  }
-}
-
-@keyframes fade-out {
-  to {
-    scale: 0;
-    opacity: 0;
-  }
-}
-
 @keyframes bounce {
   from {
     transform: translateY(0px);
@@ -333,44 +343,6 @@ footer a {
   to {
     transform: translateY(-20px);
     opacity: 1;
-  }
-}
-
-@keyframes glitch {
-  0% {
-    filter: drop-shadow(0.2em 0 0 rgba(255, 0, 0, 0.75))
-      drop-shadow(-0.2em -0.2em 0 rgba(0, 255, 0, 0.75))
-      drop-shadow(0.2em -0.2em 0 rgba(0, 0, 255, 0.75));
-  }
-  14% {
-    filter: drop-shadow(0.2em 0 0 rgba(255, 0, 0, 0.75))
-      drop-shadow(-0.2em -0.2em 0 rgba(0, 255, 0, 0.75))
-      drop-shadow(0.2em -0.2em 0 rgba(0, 0, 255, 0.75));
-  }
-  15% {
-    filter: drop-shadow(-0.2em -0.1em 0 rgba(255, 0, 0, 0.75))
-      drop-shadow(0.25em 0.1em 0 rgba(0, 255, 0, 0.75))
-      drop-shadow(0.1em -0.3em 0 rgba(0, 0, 255, 0.75));
-  }
-  49% {
-    filter: drop-shadow(-0.2em -0.1em 0 rgba(255, 0, 0, 0.75))
-      drop-shadow(0.25em 0.1em 0 rgba(0, 255, 0, 0.75))
-      drop-shadow(0.1em -0.3em 0 rgba(0, 0, 255, 0.75));
-  }
-  50% {
-    filter: drop-shadow(0.4em -0.3em 0 rgba(255, 0, 0, 0.75))
-      drop-shadow(-0.3em 0.2em 0 rgba(0, 255, 0, 0.75))
-      drop-shadow(0.3em 0.4em 0 rgba(0, 0, 255, 0.75));
-  }
-  99% {
-    filter: drop-shadow(0.4em -0.3em 0 rgba(255, 0, 0, 0.75))
-      drop-shadow(-0.3em 0.2em 0 rgba(0, 255, 0, 0.75))
-      drop-shadow(0.3em 0.4em 0 rgba(0, 0, 255, 0.75));
-  }
-  100% {
-    filter: drop-shadow(-0.4em -0.25em 0 rgba(255, 0, 0, 0.75))
-      drop-shadow(-0.2em -0.3em 0 rgba(0, 255, 0, 0.75))
-      drop-shadow(-0.6em 0.2em 0 rgba(0, 0, 255, 0.75));
   }
 }
 
@@ -417,5 +389,65 @@ footer a {
 @media (max-width: 600px) {
   .projects {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes fade-in {
+    to {
+      scale: 1;
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    to {
+      scale: 0;
+      opacity: 0;
+    }
+  }
+
+  @keyframes glitch {
+    0% {
+      filter: drop-shadow(0.2em 0 0 rgba(255, 0, 0, 0.75))
+        drop-shadow(-0.2em -0.2em 0 rgba(0, 255, 0, 0.75))
+        drop-shadow(0.2em -0.2em 0 rgba(0, 0, 255, 0.75));
+    }
+    14% {
+      filter: drop-shadow(0.2em 0 0 rgba(255, 0, 0, 0.75))
+        drop-shadow(-0.2em -0.2em 0 rgba(0, 255, 0, 0.75))
+        drop-shadow(0.2em -0.2em 0 rgba(0, 0, 255, 0.75));
+    }
+    15% {
+      filter: drop-shadow(-0.2em -0.1em 0 rgba(255, 0, 0, 0.75))
+        drop-shadow(0.25em 0.1em 0 rgba(0, 255, 0, 0.75))
+        drop-shadow(0.1em -0.3em 0 rgba(0, 0, 255, 0.75));
+    }
+    49% {
+      filter: drop-shadow(-0.2em -0.1em 0 rgba(255, 0, 0, 0.75))
+        drop-shadow(0.25em 0.1em 0 rgba(0, 255, 0, 0.75))
+        drop-shadow(0.1em -0.3em 0 rgba(0, 0, 255, 0.75));
+    }
+    50% {
+      filter: drop-shadow(0.4em -0.3em 0 rgba(255, 0, 0, 0.75))
+        drop-shadow(-0.3em 0.2em 0 rgba(0, 255, 0, 0.75))
+        drop-shadow(0.3em 0.4em 0 rgba(0, 0, 255, 0.75));
+    }
+    99% {
+      filter: drop-shadow(0.4em -0.3em 0 rgba(255, 0, 0, 0.75))
+        drop-shadow(-0.3em 0.2em 0 rgba(0, 255, 0, 0.75))
+        drop-shadow(0.3em 0.4em 0 rgba(0, 0, 255, 0.75));
+    }
+    100% {
+      filter: drop-shadow(-0.4em -0.25em 0 rgba(255, 0, 0, 0.75))
+        drop-shadow(-0.2em -0.3em 0 rgba(0, 255, 0, 0.75))
+        drop-shadow(-0.6em 0.2em 0 rgba(0, 0, 255, 0.75));
+    }
+  }
+
+  @keyframes text-reveal {
+    to {
+      opacity: 1;
+    }
   }
 }

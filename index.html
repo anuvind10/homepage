@@ -14,7 +14,7 @@
   <body>
     <div class="layout">
       <main>
-        <div class="nav-container">
+        <section class="nav-container">
           <div class="logo-wrapper">
             <div class="logo-container">
               <svg
@@ -41,24 +41,27 @@
             <p class="logo-text">Anuvind Ashok</p>
           </div>
           <ul class="nav-list">
-            <li><a href="#">Home</a></li>
-            <li><a href="">Projects</a></li>
-            <li><a href="">Contact</a></li>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#projects-section">Projects</a></li>
+            <li><a href="#footer">Contact</a></li>
           </ul>
-        </div>
-        <div class="hero">
+        </section>
+        <section id="hero">
           <div class="overlay"></div>
-          <div class="hero-content">
+          <div class="hero-content text-reveal">
             <h1>Hey there,</h1>
-            <p>
-              My name is Anuvind. I'm a curious and enthusiastic full-stack
-              developer in the making! Right now, I'm learning the ins and outs
-              of web development — building projects, exploring new tech, and
-              trying to break (and fix!) things along the way. This site is my
-              little corner of the internet where I share what I'm working on
-              and what I'm learning. I'm excited about the journey ahead and
-              always looking to grow, connect, and create cool things with code.
-            </p>
+            <span>
+              <p>
+                My name is Anuvind. I'm a curious and enthusiastic full-stack
+                developer in the making! Right now, I'm learning the ins and
+                outs of web development — building projects, exploring new tech,
+                and trying to break (and fix!) things along the way. This site
+                is my little corner of the internet where I share what I'm
+                working on and what I'm learning. I'm excited about the journey
+                ahead and always looking to grow, connect, and create cool
+                things with code.
+              </p>
+            </span>
           </div>
           <div class="hero-img">
             <img
@@ -75,8 +78,8 @@
               aria-hidden="true"
             />
           </div>
-        </div>
-        <div class="projects-section">
+        </section>
+        <section id="projects-section">
           <div class="section-header">
             <hr class="line" />
             <h1>Some of my works</h1>
@@ -125,13 +128,13 @@
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </main>
     </div>
-    <footer>
+    <footer id="footer">
       <p>Copyright © <a href="">Anuvind Ashok</a></p>
       <div class="links">
-        <a href="https://github.com/anuvind10"
+        <a href="https://github.com/anuvind10" target="_blank"
           ><i class="devicon-github-original"></i
         ></a>
       </div>
